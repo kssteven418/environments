@@ -2,9 +2,9 @@
 set autoindent
 set cindent
 
-set ts=4 " Tab 너비
-set shiftwidth=4 " 자동 인덴트할 때 너비
-set softtabstop=4
+set ts=2 " Tab 너비
+set shiftwidth=2 " 자동 인덴트할 때 너비
+set softtabstop=2
 set smartindent
 set smarttab
 set expandtab
@@ -13,8 +13,11 @@ set encoding=utf-8
 
 set nu
 
-set tags=./tags,tags;$HOME
+" dowmload this color scheme from
+" https://www.vim.org/scripts/script.php?script_id=2340
+colorscheme molokai
 
+set tags=./tags,tags;$HOME
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -28,8 +31,21 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" All of your Plugins must be added before the following line
 Plugin 'Valloric/YouCompleteMe'
-
+" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
