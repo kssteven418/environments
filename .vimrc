@@ -20,6 +20,11 @@ map <C-d> <C-b>
 
 colorscheme molokai
 
+" for vim-airline
+let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
+let g:airline_theme='dark'
+let laststatus=1 " turn on bottom bar
+
 set tags=./tags,tags;$HOME
 
 set nocompatible              " be iMproved, required
@@ -35,11 +40,17 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'edkolev/promptline.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
 
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
