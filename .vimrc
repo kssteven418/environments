@@ -20,6 +20,11 @@ noremap * #
 nnoremap <expr> n (v:searchforward ? 'n' : 'N')
 nnoremap <expr> N (v:searchforward ? 'N' : 'n')
 
+" This allows the uniform line color
+if &term =~ '256color'
+  set t_ut=
+endif
+
 colorscheme molokai
 
 " for vim-airline
