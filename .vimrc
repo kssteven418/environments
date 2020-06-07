@@ -15,15 +15,17 @@ set nu
 
 " key mappings
 map <C-d> <C-b>   
-"nnoremap <expr> n (v:searchforward ? 'n' : 'N')
-"nnoremap <expr> N (v:searchforward ? 'N' : 'n')
+noremap # *  
+noremap * #  
+nnoremap <expr> n (v:searchforward ? 'n' : 'N')
+nnoremap <expr> N (v:searchforward ? 'N' : 'n')
 
 colorscheme molokai
 
 " for vim-airline
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='dark'
-let laststatus=1 " turn on bottom bar
+let laststatus=2 " turn on bottom bar
 
 set tags=./tags,tags;$HOME
 
