@@ -14,7 +14,6 @@ set encoding=utf-8
 set nu
 
 " key mappings
-map <C-d> <C-b>   
 noremap # *  
 noremap * #  
 nnoremap <expr> n (v:searchforward ? 'n' : 'N')
