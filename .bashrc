@@ -88,18 +88,15 @@ if ! shopt -oq posix; then
 fi
 
 # local PATH
-export PATH=$PATH:/home/steven/bin
+export PATH=$PATH:$HOME/bin
 alias tt='tmux_attach'
 
 # Set PATH here
-export CUDA_HOME=/home/steven/local/cuda
-export PATH=$PATH:/home/steven/torch/install/bin:/home/steven/torch/install/bin:/home/steven/SPL/scripts:/home/steven/anaconda3/bin:/opt/Xilinx/DocNav:/opt/Xilinx/Vivado/2016.4/bin:/opt/Xilinx/Vivado_HLS/2016.4/bin:/home/steven/torch/install/bin:/home/steven/torch/install/bin:/home/steven/bin:/home/steven/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/steven/local/python/bin
-export PATH=${CUDA_HOME}/bin:${PATH}
-export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+#export CUDA_HOME=/home/steven/local/cuda
+#export PATH=$PATH:/home/steven/torch/install/bin:/home/steven/torch/install/bin:/home/steven/SPL/scripts:/home/steven/anaconda3/bin:/opt/Xilinx/DocNav:/opt/Xilinx/Vivado/2016.4/bin:/opt/Xilinx/Vivado_HLS/2016.4/bin:/home/steven/torch/install/bin:/home/steven/torch/install/bin:/home/steven/bin:/home/steven/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/steven/local/python/bin
+#export PATH=${CUDA_HOME}/bin:${PATH}
+#export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 
-export PYTHONPATH=/home/steven/workspace/janus-v2:/home/steven/workspace/janus-v2/experiments/models/RL:/home/steven/workspace/janus-v2/experiments/models/GNN/tf2-gnn
+#export PYTHONPATH=/home/steven/workspace/janus-v2:/home/steven/workspace/janus-v2/experiments/models/RL:/home/steven/workspace/janus-v2/experiments/models/GNN/tf2-gnn
 
-source venvs/venv_janus/bin/activate
-
-cd workspace/tensorflow/tensorflow
 
