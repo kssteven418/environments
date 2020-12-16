@@ -67,6 +67,23 @@ alias v='vi'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# virtualenv activateion
+vsource() {
+  if [ -z "$1" ] 
+  then
+    echo "Please type in the virtualenv name"
+  else
+    venv_path=/rscratch/sehoonkim/virtualenvs/$1/bin/activate
+    if [ -f $venv_path ]; then
+      source $venv_path
+    else
+      echo "Virtualenv $1 does not exist!"
+    fi
+  fi
+}
+
+
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -88,8 +105,24 @@ if ! shopt -oq posix; then
 fi
 
 # local PATH
+export WORKHOME=/rscratch/sehoonkim
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.local/bin
+#export PATH=$PATH:$WORKHOME/local/python/bin
+export PATH=$PATH:$HOME/local/python/bin
+#export PATH=$HOME/local/python/bin
+export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/lib
+
+# for LLVM use
+export PATH=$PATH:$WORKHOME/local/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-16.04/bin
+
+# custom keywords
 alias tt='tmux_attach'
+alias tkill='tmux kill-session -t workspace'
+alias cdd='cd $WORKHOME'
+
+# fix the locale problem
+export LC_ALL="en_US.UTF-8"
 
 # Set PATH here
 #export CUDA_HOME=/home/steven/local/cuda
@@ -99,4 +132,22 @@ alias tt='tmux_attach'
 
 #export PYTHONPATH=/home/steven/workspace/janus-v2:/home/steven/workspace/janus-v2/experiments/models/RL:/home/steven/workspace/janus-v2/experiments/models/GNN/tf2-gnn
 
+# For CUDA use
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
 
+export PATH=${CUDA_HOME}/bin:${PATH} 
+
+# For TVM use
+export TVM_HOME=$WORKHOME/tvm # default TVM
+#export TVM_HOME=$WORKHOME/tvm_zachzzc # zach's INT4 TVM
+export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:${PYTHONPATH}
+
+# For huggingFace use
+export HF_DATASETS_CACHE=/rscratch/sehoonkim/.cache/huggingface/datasets
+export HF_METRICS_CACHE=/rscratch/sehoonkim/.cache/huggingface/metrics
+export TRANSFORMERS_CACHE=/rscratch/sehoonkim/.cache/huggingface
+
+
+source /rscratch/sehoonkim/virtualenvs/venv_default/bin/activate
+cd /rscratch/sehoonkim/fairseq

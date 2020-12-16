@@ -12,12 +12,16 @@ set hlsearch
 set incsearch
 set encoding=utf-8
 set nu
+set pastetoggle=<F3>
+
 
 " key mappings
 noremap # *  
 noremap * #  
 nnoremap <expr> n (v:searchforward ? 'n' : 'N')
 nnoremap <expr> N (v:searchforward ? 'N' : 'n')
+inoremap <S-Tab> <C-n>
+map f w
 
 " This allows the uniform line color
 if &term =~ '256color'
@@ -29,6 +33,8 @@ colorscheme molokai
 " for vim-airline
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme='dark'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 let laststatus=2 " turn on bottom bar
 
 set tags=./tags,tags;$HOME
@@ -36,26 +42,22 @@ set tags=./tags,tags;$HOME
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"" set the runtime path to include Vundle and initialize
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Valloric/YouCompleteMe'
-
-Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'edkolev/promptline.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
 
 
 " To ignore plugin indent changes, instead use:
@@ -71,76 +73,5 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Put your non-Plugin stuff after this line
 " 
 "
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
-"
+au BufRead,BufNewFile *.scala set filetype=scala
+au! Syntax scala source ~/.vim/syntax/scala.vim
