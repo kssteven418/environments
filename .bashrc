@@ -67,6 +67,8 @@ alias v='vi'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+alias gitall='git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"'
+
 # virtualenv activateion
 vsource() {
   if [ -z "$1" ] 
@@ -109,12 +111,13 @@ export WORKHOME=/rscratch/sehoonkim
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 #export PATH=$PATH:$WORKHOME/local/python/bin
-export PATH=$PATH:$HOME/local/python/bin
+#export PATH=$PATH:$HOME/local/python/bin
+export PATH=$PATH:/rscratch/sehoonkim/anaconda3/bin
 #export PATH=$HOME/local/python/bin
 export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/lib
 
 # for LLVM use
-export PATH=$PATH:$WORKHOME/local/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-16.04/bin
+#export PATH=$PATH:$WORKHOME/local/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-16.04/bin
 
 # custom keywords
 alias tt='tmux_attach'
@@ -132,22 +135,26 @@ export LC_ALL="en_US.UTF-8"
 
 #export PYTHONPATH=/home/steven/workspace/janus-v2:/home/steven/workspace/janus-v2/experiments/models/RL:/home/steven/workspace/janus-v2/experiments/models/GNN/tf2-gnn
 
+export PATH=/rscratch/sehoonkim/usr/local/bin:${PATH}
+export LD_LIBRARY_PATH=/rscratch/sehoonkim/usr/local/lib:$LD_LIBRARY_PATH
+
 # For CUDA use
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/rscratch/sehoonkim/usr/local/cuda-10.0/lib:$LD_LIBRARY_PATH #Dummy cuda 10.0
 
 export PATH=${CUDA_HOME}/bin:${PATH} 
 
 # For TVM use
-export TVM_HOME=$WORKHOME/tvm # default TVM
+#export TVM_HOME=$WORKHOME/tvm # default TVM
 #export TVM_HOME=$WORKHOME/tvm_zachzzc # zach's INT4 TVM
-export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:${PYTHONPATH}
+#export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:${PYTHONPATH}
 
 # For huggingFace use
 export HF_DATASETS_CACHE=/rscratch/sehoonkim/.cache/huggingface/datasets
 export HF_METRICS_CACHE=/rscratch/sehoonkim/.cache/huggingface/metrics
 export TRANSFORMERS_CACHE=/rscratch/sehoonkim/.cache/huggingface
 
+export LD_LIBRARY_PATH=~/.mujoco/mujoco200/bin/:$LD_LIBRARY_PATH
 
-source /rscratch/sehoonkim/virtualenvs/venv_default/bin/activate
-cd /rscratch/sehoonkim/fairseq
+source /rscratch/sehoonkim/anaconda3/bin/activate
