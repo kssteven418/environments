@@ -105,7 +105,6 @@ if ! shopt -oq posix; then
 fi
 
 # local PATH
-export WORKHOME=/rscratch/sehoonkim
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 #export PATH=$PATH:$WORKHOME/local/python/bin
@@ -142,12 +141,3 @@ export PATH=${CUDA_HOME}/bin:${PATH}
 export TVM_HOME=$WORKHOME/tvm # default TVM
 #export TVM_HOME=$WORKHOME/tvm_zachzzc # zach's INT4 TVM
 export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:${PYTHONPATH}
-
-# For huggingFace use
-export HF_DATASETS_CACHE=/rscratch/sehoonkim/.cache/huggingface/datasets
-export HF_METRICS_CACHE=/rscratch/sehoonkim/.cache/huggingface/metrics
-export TRANSFORMERS_CACHE=/rscratch/sehoonkim/.cache/huggingface
-
-
-source /rscratch/sehoonkim/virtualenvs/venv_default/bin/activate
-cd /rscratch/sehoonkim/fairseq
