@@ -141,3 +141,5 @@ export PATH=${CUDA_HOME}/bin:${PATH}
 export TVM_HOME=$WORKHOME/tvm # default TVM
 #export TVM_HOME=$WORKHOME/tvm_zachzzc # zach's INT4 TVM
 export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:${PYTHONPATH}
+
+source anaconda3/bin/activate
