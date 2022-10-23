@@ -62,6 +62,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias v='vi'
+alias vi='vim'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -109,7 +110,7 @@ fi
 # local PATH
 export WORKHOME=/rscratch/sehoonkim
 export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$HOME/.local/bin:$PATH
 #export PATH=$PATH:$WORKHOME/local/python/bin
 #export PATH=$PATH:$HOME/local/python/bin
 export PATH=$PATH:/rscratch/sehoonkim/anaconda3/bin
@@ -145,6 +146,9 @@ export LD_LIBRARY_PATH=/rscratch/sehoonkim/usr/local/cuda-10.0/lib:$LD_LIBRARY_P
 
 export PATH=${CUDA_HOME}/bin:${PATH} 
 
+# For mujoco use
+#export LD_LIBRARY_PATH=~/.mujoco/mujoco200/bin/:$LD_LIBRARY_PATH
+
 # For TVM use
 #export TVM_HOME=$WORKHOME/tvm # default TVM
 #export TVM_HOME=$WORKHOME/tvm_zachzzc # zach's INT4 TVM
@@ -155,6 +159,17 @@ export HF_DATASETS_CACHE=/rscratch/sehoonkim/.cache/huggingface/datasets
 export HF_METRICS_CACHE=/rscratch/sehoonkim/.cache/huggingface/metrics
 export TRANSFORMERS_CACHE=/rscratch/sehoonkim/.cache/huggingface
 
-export LD_LIBRARY_PATH=~/.mujoco/mujoco200/bin/:$LD_LIBRARY_PATH
+
+export PYTHONPATH=/rscratch/sehoonkim/workspace/SlowFast/slowfast:$PYTHONPATH
 
 source /rscratch/sehoonkim/anaconda3/bin/activate
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/rscratch/sehoonkim/sky/google-cloud-sdk/path.bash.inc' ]; then . '/rscratch/sehoonkim/sky/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/rscratch/sehoonkim/sky/google-cloud-sdk/completion.bash.inc' ]; then . '/rscratch/sehoonkim/sky/google-cloud-sdk/completion.bash.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
