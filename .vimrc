@@ -13,7 +13,10 @@ set incsearch
 set encoding=utf-8
 set nu
 set pastetoggle=<F3>
+set backspace=indent,eol,start
 
+" vimrc-coc config
+source ~/.vimrc_coc
 
 " key mappings
 noremap # *  
@@ -42,23 +45,17 @@ set tags=./tags,tags;$HOME
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-"" set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-PLUGIN INITIALIZATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin()
 
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'edkolev/promptline.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" All of your Plugins must be added before the following line
-"call vundle#end()            " required
+call plug#end()
+
 filetype plugin indent on    " required
-
 
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -75,3 +72,6 @@ filetype plugin indent on    " required
 "
 au BufRead,BufNewFile *.scala set filetype=scala
 au! Syntax scala source ~/.vim/syntax/scala.vim
+
+set signcolumn=number
+syntax on

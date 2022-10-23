@@ -1,0 +1,29 @@
+{
+  "languageserver": {
+        "svlangserver": {
+            "command": "/Users/sunjinchoi/workspace/svlangserver/bin/main.js",
+            "filetypes": ["systemverilog"],
+			"trace.server": "verbose",
+            "settings": {
+                "systemverilog.includeIndexing": ["**/*.{sv,svh}"],
+                "systemverilog.excludeIndexing": ["test/**/*.sv*"],
+                "systemverilog.defines" : [],
+                "systemverilog.launchConfiguration": "/usr/local/bin/verilator -sv -Wall --lint-only",
+                "systemverilog.formatCommand": "/usr/local/bin/verible-verilog-format"
+            }
+        }
+  },
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd",
+
+  "list.normalMappings": {
+  "<C-c>": "do:exit"
+  },
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
+  
+  "python.analysis.typeCheckingMode": "off",
+  "pyright.inlayHints.enable": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.functionReturnTypes": false
+}
