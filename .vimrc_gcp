@@ -1,0 +1,72 @@
+set autoindent
+set cindent
+
+set ts=2 
+set shiftwidth=2 
+set softtabstop=2
+set tabstop=2
+set smartindent
+set smarttab
+set expandtab
+set hlsearch
+set incsearch
+set encoding=utf-8
+set nu
+set pastetoggle=<F3>
+set backspace=indent,eol,start
+
+" vimrc-coc config
+"source ~/.vimrc_coc
+
+" key mappings
+noremap # *  
+noremap * #  
+nnoremap <expr> n (v:searchforward ? 'n' : 'N')
+nnoremap <expr> N (v:searchforward ? 'N' : 'n')
+inoremap <S-Tab> <C-n>
+map f w
+
+" This allows the uniform line color
+if &term =~ '256color'
+  set t_ut=
+endif
+
+colorscheme molokai
+
+" for vim-airline
+let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
+let g:airline_theme='dark'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+let laststatus=2 " turn on bottom bar
+
+set tags=./tags,tags;$HOME
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-PLUGIN INITIALIZATION
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+" 
+"
+au BufRead,BufNewFile *.scala set filetype=scala
+au! Syntax scala source ~/.vim/syntax/scala.vim
+
+"set signcolumn=number
+syntax on
